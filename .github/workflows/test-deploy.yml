@@ -1,0 +1,52 @@
+name: React CI/CD
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      # Install dependencies
+      - name: Install Dependencies
+        run: npm install
+
+      # Run tests
+      - name: Run Tests
+        run: npm test
+
+      # Run linter
+      - name: Run Linter
+        run: npm run lint
+
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      # Install dependencies
+      - name: Install Dependencies
+        run: npm install
+
+      # Build project
+      - name: Build
+        run: npm run build
+
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      # Install dependencies
+      - name: Install Dependencies
+        run: npm install
+
+      # Run linter
+      - name: Run Linter
+        run: npm run lint
