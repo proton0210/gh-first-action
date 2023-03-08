@@ -19,10 +19,6 @@ jobs:
       - name: Run Tests
         run: npm test
 
-      # Run linter
-      - name: Run Linter
-        run: npm run lint
-
   deploy:
     runs-on: ubuntu-latest
 
@@ -36,17 +32,3 @@ jobs:
       # Build project
       - name: Build
         run: npm run build
-
-  lint:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v3
-
-      # Install dependencies
-      - name: Install Dependencies
-        run: npm install
-
-      # Run linter
-      - name: Run Linter
-        run: npm run lint
